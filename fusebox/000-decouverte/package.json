@@ -1,0 +1,20 @@
+{
+  "name": "000-decouverte",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fuse-box": "^3.7.1",
+    "terser": "^4.6.6",
+    "typescript": "^3.8.3",
+    "uglify-js": "^3.8.0"
+  },
+  "dependencies": {
+    "@types/node": "^13.9.0"
+  }
+}
