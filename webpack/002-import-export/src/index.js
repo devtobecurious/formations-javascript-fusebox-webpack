@@ -1,5 +1,7 @@
-import { log, log1, log2 } from './log'
+//import { log, log1, log2 } from './log'
+// tout importer
+import * as loggers from './log';
 
-log('ah que coucou');
-log1('ah que coucou');
-log2('ah que coucou');
+loggers.log('ah que coucou');
+loggers.log1('ah que coucou');
+loggers.log2('ah que coucou');
