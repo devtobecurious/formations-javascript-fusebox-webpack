@@ -33,3 +33,25 @@ context(class {
   } 
 });
 
+task('default', async context => {
+  const fuse = context.getConfig();
+
+  fuse.dev();
+
+  context.createBundle(fuse);
+
+  await fuse.run();
+});
+
+task('dist', async context => {
+  context.isProduction = true;
+
+  const fuse = context.getConfig();
+
+  fuse.dev();
+
+  context.createBundle(fuse);
+
+  await fuse.run();
+});
+
