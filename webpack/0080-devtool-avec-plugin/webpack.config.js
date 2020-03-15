@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -13,10 +14,10 @@ module.exports = {
   },
   watch: true,
   plugins: [
-    new HtmlWebpackPlugin(), // Generates default index.html
-    new HtmlWebpackPlugin({  // Also generate a test.html
-      filename: 'test.html',
-      template: 'src/assets/test.html'
+    new HtmlWebpackPlugin(),
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map',
+      exclude: ['vendor.js']
     })
   ],
   module: {

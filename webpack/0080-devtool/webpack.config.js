@@ -8,13 +8,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   mode: 'development',
-  devtool: 'eval-source-map',
   optimization: {
     noEmitOnErrors: true
   },
   watch: true,
+  devtool: 'inline-source-map',
   plugins: [
-    new HtmlWebpackPlugin() // Generates default index.html
+    new HtmlWebpackPlugin()
   ],
   module: {
     rules: [

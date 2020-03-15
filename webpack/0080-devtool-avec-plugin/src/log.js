@@ -10,3 +10,5 @@ export function log1(value) {
 export function log2(value) {
     console.error(value);
 }
+
+// export fnuc() {} // If uncomment, no main.js will be generated
