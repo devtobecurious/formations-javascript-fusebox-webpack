@@ -1,6 +1,8 @@
 import { log, log1, log2 } from './log';
 import config from './config.json';
 
+import styles  from './assets/test.css';
+
 
 log('ah que coucou');
 log('ohoho');
@@ -8,8 +10,12 @@ log('ohoho');
 console.log(config);
 
 
+console.log(styles);
+
 
 const button = document.getElementById('clickme');
+
+button.className = 'test';
 
 // https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import/
 // npm install --save-dev @babel/plugin-syntax-dynamic-import
