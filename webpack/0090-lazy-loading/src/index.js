@@ -1,7 +1,7 @@
 import { log, log1, log2 } from './log'
 import config from './config.json'
 
-import $ from 'jquery';
+//import $ from 'jquery';
 
 
 log('ah que coucou');
@@ -9,8 +9,19 @@ log('ohoho');
 
 console.log(config);
 
-$.ajax('https://swapi.co/api/people/', {
-    success: (data) => {
-        log(data);
-    }
-});
+
+
+const button = document.getElementById('clickme');
+
+button.addEventListener('click', (e) => {
+    import('jquery').then((jQuery) => {
+        window.$ = jQuery;
+        $('body').css('backgroundColor', '#00FF00');
+
+        $.ajax('https://swapi.co/api/people/', {
+            success: (data) => {
+                log(data);
+            }
+        });
+    })
+})
