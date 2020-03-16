@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: '[name].bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
   mode: 'development',
@@ -13,9 +14,9 @@ module.exports = {
   },
   watch: true,
   plugins: [
-    new webpack.SourceMapDevToolPlugin({
-      filename: '[name].js.map',
-      exclude: ['vendor.js']
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      filename: 'index.html',
+      template: 'src/index.html'
     })
   ],
   module: {
