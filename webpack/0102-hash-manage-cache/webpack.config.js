@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: '[name].[hash].js',
+    filename: '[name].[hash:8].js',
     path: path.resolve(__dirname, 'dist')
   },
   mode: 'development',
