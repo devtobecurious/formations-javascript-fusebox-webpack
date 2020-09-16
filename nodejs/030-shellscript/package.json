@@ -1,0 +1,15 @@
+{
+  "name": "030-shellscript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "shell": "shx pwd && shx ls",
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "shx": "^0.3.2"
+  }
+}
