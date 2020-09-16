@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "shx": "^0.3.2"
+  },
+  "dependencies": {
+    "onchange": "^7.0.2"
   }
 }
