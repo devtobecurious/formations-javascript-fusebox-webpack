@@ -1,0 +1,16 @@
+{
+  "name": "032-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "mavariable": "test variable ?"
+  },
+  "scripts": {
+    "variable": "npm run env",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
