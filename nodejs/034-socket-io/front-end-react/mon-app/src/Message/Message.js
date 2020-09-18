@@ -3,6 +3,6 @@ import './Message.css';
 
 export default function Message(props) {
     return (
-        <div className={props.className}>{ props.content }</div>
+        <div className={ props.item.from }>{ props.item.content }</div>
     );
 }

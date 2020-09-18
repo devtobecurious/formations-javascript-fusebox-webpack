@@ -11,7 +11,6 @@ class MessageService {
 
     init() {
         this.socket = io(this.url);
-
         console.log('this.socket :>> ', this.socket);
     }
 
@@ -22,9 +21,13 @@ class MessageService {
     }
 
     onReceiveMessage(callback) {
-        this.socket.on('chat:message', (message) => {
-            callback(this, message);
+        this.socket.on('chat:message', message => {
+            callback(this, { content: message, from: 'others' });
         });
+    }
+
+    newMessage(content, from = 'mine') {
+        return { content: content, from: from };
     }
 
     onReceiveTyping(callback) {
@@ -39,8 +42,10 @@ class MessageService {
         });
     }
 
-    send(message) {
+    send(message, callback) {
         this.socket.emit('chat:message', message);
+
+        callback({ content: message, from: 'mine' });
     }
 
     sendTyping(isTyping = false) {
