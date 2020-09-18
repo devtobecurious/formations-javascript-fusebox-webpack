@@ -1,0 +1,4 @@
+#messages div { padding: 5px 10px; clear:both; }
+#messages div.mine { width: 250px; float: right; overflow: auto; background-color: green; color:white; }
+#messages div.others { text-align: left; float: left; overflow: auto; background-color: grey; color: black; }
+#messages #typing { font-style: italic; opacity: 0.7; }
