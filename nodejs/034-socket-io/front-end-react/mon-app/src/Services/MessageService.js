@@ -32,7 +32,7 @@ class MessageService {
 
     onReceiveTyping(callback) {
         this.socket.on('chat:typing', () => {
-            callback(this, null);
+            callback(this, { content: 'typing ....', from: 'typing' });
         });
     }
 
@@ -48,11 +48,11 @@ class MessageService {
         callback({ content: message, from: 'mine' });
     }
 
-    sendTyping(isTyping = false) {
+    sendTyping(isTyping = false, callback) {
         let key = 'end';
             
         if (isTyping) {
-            key = ''
+            key = '';
         } 
 
         this.socket.emit(`chat:${key}typing`);
