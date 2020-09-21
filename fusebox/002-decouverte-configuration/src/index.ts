@@ -1,0 +1,3 @@
+class Wookie {
+    name: string;
+}
