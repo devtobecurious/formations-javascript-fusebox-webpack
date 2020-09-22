@@ -39,3 +39,22 @@ context(
   
     await fuse.run();
   });
+
+  task('first', () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    })
+  }).help("Run a development environment");
+
+  task('second', () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    })
+  });
+
+  task("waterfall", ["first", "second"], () => {});
+  task("parallel", ["&first", "&second"], () => {});
