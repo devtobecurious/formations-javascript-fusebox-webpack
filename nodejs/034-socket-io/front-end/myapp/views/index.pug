@@ -3,3 +3,8 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  div(id="messages")
+    form(id="sendForm", action="")
+      input(id="message",autocomplete="off") 
+      button Send

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Tchattons ensemble #{title}
+
+  div(id="messages")
+  form(id="sendForm", action="/messages", method="post")
+    input(id="message",autocomplete="off") 
+    button(type="submit") Send
+  
+  script(type='text/javascript').
+    alert('coucou');
+    function hello() {}

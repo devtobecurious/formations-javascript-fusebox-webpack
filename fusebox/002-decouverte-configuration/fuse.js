@@ -5,7 +5,7 @@ const fuse = FuseBox.init({
     homeDir: "src",
     output: "build/$name.js",
     cache: true,
-    plugins: [WebIndexPlugin()],
+    plugins: [WebIndexPlugin({ tem})],
     tsConfig: "./tsconfig.json"
   });
 
