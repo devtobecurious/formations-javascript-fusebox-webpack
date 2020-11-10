@@ -1,9 +1,9 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // console.log(process.env.NODE_ENV);
 // console.log(path.resolve(__dirname,'dist/index-genere.html'));
 
@@ -12,9 +12,6 @@ const params = {
     entry: {
         main: [
             './src/main.ts'
-        ],
-        style: [
-            './assets/css/styles.css'
         ]
     },
     devtool: 'inline-source-map',
@@ -27,24 +24,26 @@ const params = {
         noEmitOnErrors: true
     },
     resolve: {
-        extensions: [ '.ts', '.tsx', '.js' ]
+        extensions: ['.ts', '.tsx', '.js' ]
     },
     plugins: [
         new HtmlWebPackPlugin({
             filename: path.resolve(__dirname,'dist/index-genere.html'),
             template: 'template/index.html'
         }),
-        new MiniCssExtractPlugin()
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, 'assets/img'),
+                to: path.resolve(__dirname, 'dist/assets/img')
+            }]
+        })
+        // new HtmlWebpackTagsPlugin({ tags: ['./assets/css/styles.css'], append: true })
     ],
     module: {
         rules: [
             {
                 test: /\.tsx?$/, loader: 'ts-loader'
-            },
-            {
-                test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
-              }
+            }
         ]
     }
 };
