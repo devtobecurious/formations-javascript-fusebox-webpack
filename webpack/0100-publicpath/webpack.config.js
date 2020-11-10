@@ -19,16 +19,17 @@ module.exports = {
       filename: path.resolve(__dirname, 'dist/index.html'),
       template: 'src/index.html'
     })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          'babel-loader'
-        ]
-      }
-    ]
-  }
+  ]
+  // ,
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.js$/,
+  //       exclude: /(node_modules|bower_components)/,
+  //       use: [
+  //         'babel-loader'
+  //       ]
+  //     }
+  //   ]
+  // }
 };
