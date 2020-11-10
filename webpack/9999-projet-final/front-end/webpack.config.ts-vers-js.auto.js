@@ -9,12 +9,18 @@ const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 const params = {
     mode: 'production',
-    entry: 
-        './src/main.ts',  
+    entry: {
+        main: [
+            './src/main.ts'
+        ],
+        style: [
+            './assets/css/styles.css'
+        ]
+    },
     devtool: 'inline-source-map',
     output: {
-        filename: 'monfichier.js',
-        path: path.resolve(__dirname, 'dist/assets/js')
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist')
     },
     optimization: {
         minimize: true,
@@ -27,7 +33,8 @@ const params = {
         new HtmlWebPackPlugin({
             filename: path.resolve(__dirname,'dist/index-genere.html'),
             template: 'template/index.html'
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
     module: {
         rules: [
