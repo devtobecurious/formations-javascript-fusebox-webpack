@@ -20,8 +20,13 @@ import { Position } from './position';
                     this.state = 'walk';
 
                     this.currentDirection = event.key.toLocaleLowerCase().replace('arrow', '') as Direction;
-                    this.defineAnimationWithDirection();
                 }
+
+                if (event.key == ' ') {
+                    this.state = 'fight';
+                }
+
+                this.defineAnimationWithDirection();
             });
 
             document.addEventListener('keyup', (event) => {
