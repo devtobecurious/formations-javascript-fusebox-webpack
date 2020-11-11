@@ -36,10 +36,6 @@ import { Position } from './position';
                 }, 400);
             });
         }
-
-        private defineAnimationWithDirection() {
-            this.container.className = `player ${this.state} ${this.currentDirection}`;
-        }
         //#endregion
 
         //#region Properties

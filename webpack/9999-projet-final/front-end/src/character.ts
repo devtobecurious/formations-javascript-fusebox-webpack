@@ -14,6 +14,7 @@ export type Direction = 'right' | 'left';
         protected state: State;
         protected currentPosition: Position;
         protected currentDirection: Direction;
+        protected moreState: string;
         //#endregion
 
         constructor(public id: number, 
@@ -44,15 +45,24 @@ export type Direction = 'right' | 'left';
 
         attack(enemy: Character): void {
             enemy.lifePoints -= this.arme.pointsAttaque;
+            enemy.defense(this);
         }
 
         defense(enemy: Character): void {
-            
+            this.moreState = 'hit';
+            this.defineAnimationWithDirection();
+
+            setTimeout(() => {
+                this.moreState = '';
+                this.defineAnimationWithDirection();
+            }, 400);
         }
         //#endregion
 
         //#region Internal methods
-        
+        protected defineAnimationWithDirection() {
+            this.container.className = `player ${this.state} ${this.currentDirection} ${this.moreState}`;
+        }
 
         protected killWhenOutsideBorders() {
             if (! this.isInsideScene) {
