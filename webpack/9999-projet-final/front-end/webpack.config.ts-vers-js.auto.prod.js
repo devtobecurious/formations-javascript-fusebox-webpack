@@ -41,10 +41,10 @@ const params = {
                     from: path.resolve(__dirname, 'assets/img'),
                     to: path.resolve(__dirname, 'dist/assets/img')
                 },
-                {
-                    from: path.resolve(__dirname, 'assets/css'),
-                    to: path.resolve(__dirname, 'dist/assets/css')
-                },
+                // {
+                //     from: path.resolve(__dirname, 'assets/css'),
+                //     to: path.resolve(__dirname, 'dist/assets/css')
+                // },
             ]
         }),
     ],

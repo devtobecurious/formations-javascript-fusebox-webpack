@@ -2,33 +2,37 @@ body {
   margin: 0;
   padding: 0;
 }
-.slide {
-  width: 100vw;
-  height: 100vh;
-}
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 400vw;
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-}
-.one {
-  background-size: auto 100vh;
-  background-repeat: repeat-x;
-  width: 400vw;
-}
-.outer-wrapper {
-  width: 100vh;
-  height: 100vw;
-  transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+
 ::-webkit-scrollbar {
   display:none;
+}
+
+.game {
+  overflow: hidden;
+}
+
+.sliding-background {
+  background: url('../img/background.png') repeat-x;
+  height: 560px;
+  width: 10076px;
+  /* animation: slide 60s linear infinite; */
+}
+
+.player {
+  position: absolute;
+  left: 10px;
+}
+
+.player img {
+  height: 30%;
+  width: 30%;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  /* 100%{
+    transform: translate3d(-1692px, 0, 0);
+  } */
 }

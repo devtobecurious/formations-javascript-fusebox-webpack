@@ -6,7 +6,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist/assets/js'),
+    publicPath: '/assets/js'
   },
   mode: 'development',
   optimization: {
@@ -21,13 +22,13 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          'babel-loader'
-        ]
-      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /(node_modules|bower_components)/,
+      //   use: [
+      //     'babel-loader'
+      //   ]
+      // },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
