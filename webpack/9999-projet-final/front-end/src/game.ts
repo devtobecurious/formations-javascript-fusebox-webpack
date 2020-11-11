@@ -49,6 +49,7 @@ export class Game {
     private executeFrame(): void {
         this.createRandomEnemy();
         this.moveEnemies();
+        this.manageFight();
         this.updateStatusBar();
     }
 
@@ -59,6 +60,16 @@ export class Game {
 
     private initStatusBar(): void {
         this.statusBar.init(this.player);
+    }
+
+    private manageFight(): void {
+        this.troopers.forEach(trooper => {
+            if (trooper.isNearEnemy) {
+                setTimeout(() => {
+                    trooper.attack(this.player);
+                }, 500);
+            }
+        });
     }
 
     private updateStatusBar() {

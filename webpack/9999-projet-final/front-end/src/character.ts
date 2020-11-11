@@ -21,7 +21,6 @@ export type Direction = 'right' | 'left';
                     public lifePoints: number = 100,
                     public arme: Arme,
                     positionInitiale ?: Position) {
-
             
             this.gameContainer = document.querySelector('.game');
             if (positionInitiale) {
@@ -30,21 +29,31 @@ export type Direction = 'right' | 'left';
         }
     
         //#region Public methods
-        init(options: { position?: Position }) {
+        init(options: { position?: Position }): void {
             this.defineStateAndDirection();
             this.defineContainer(options);
         }
 
-        move(vector?: Vector) {  
+        move(vector?: Vector): void {  
             this.currentPosition.x += vector.x;
             this.currentPosition.y += vector.y;
 
             this.moveContainer(this.currentPosition);
             this.killWhenOutsideBorders();
         }
+
+        attack(enemy: Character): void {
+            enemy.lifePoints -= this.arme.pointsAttaque;
+        }
+
+        defense(enemy: Character): void {
+            
+        }
         //#endregion
 
         //#region Internal methods
+        
+
         protected killWhenOutsideBorders() {
             if (! this.isInsideScene) {
                 this.gameContainer.removeChild(this.container);
@@ -76,6 +85,10 @@ export type Direction = 'right' | 'left';
 
         get isInsideScene(): boolean {
             return this.currentPosition.x > -100 && this.currentPosition.y < window.innerWidth; 
+        }
+
+        get isNearEnemy(): boolean {
+            return this.currentPosition.x >= 0 && this.currentPosition.x <= 10;
         }
         //#endregion
     }
