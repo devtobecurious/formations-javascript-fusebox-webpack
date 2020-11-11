@@ -78,7 +78,9 @@ body {
 }
 
 .game .player.fight {
-  animation: fight 0.8s steps(4);
+  width: 70px;
+  height: 60px;
+  animation: fight 0.8s steps(3) infinite;
 }
 
 .game .trooper.walk {
@@ -100,7 +102,7 @@ body {
 
 @keyframes fight {
   0%{background-position: -0px -562px;}
-  100%{background-position:-200px -562px;};
+  100%{background-position:-210px -562px;};
 }
 
 @keyframes runtrooper {

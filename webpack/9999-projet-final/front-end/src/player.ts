@@ -30,8 +30,10 @@ import { Position } from './position';
             });
 
             document.addEventListener('keyup', (event) => {
-                this.state = 'idle';
-                this.defineAnimationWithDirection();
+                setTimeout(() => {
+                    this.state = 'idle';
+                    this.defineAnimationWithDirection();
+                }, 400);
             });
         }
 

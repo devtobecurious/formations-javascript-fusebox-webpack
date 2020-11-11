@@ -34,7 +34,7 @@ export class Game {
 
     start() {
         this.id = setInterval(() => {
-            this.executeFrame();
+           this.executeFrame();
         })
     }
 
