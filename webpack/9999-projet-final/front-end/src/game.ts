@@ -1,4 +1,6 @@
 import { Arme } from './arme';
+import { Scene } from './scene';
+import { Player } from './player';
 import { StormTrooper } from './storm-trooper';
 
 export type initGame = { nbStormsTroopers: number, frameRate: number };
@@ -12,6 +14,8 @@ export class Game {
     private nbStormsTroopers:number = 0;
     private frameRate: number = 100;
     private troopers: StormTrooper[] = [];
+    private currentScene = new Scene();
+    private player: Player;
     //#endregion
 
     //#region Public methods
@@ -20,6 +24,8 @@ export class Game {
         this.nbStormsTroopers = param.nbStormsTroopers;
 
         this.initEnemies();
+        this.initPlayer();
+        this.currentScene.init({ rythm: 10, querySelector: '.sliding-background' });
     }
 
     start() {
@@ -34,8 +40,15 @@ export class Game {
     //#endregion
 
     //#region Internal methods
+    private animate() {}
+
     private executeFrame() {
 
+    }
+
+    private initPlayer() {
+        this.player = new Player(1, 'Luke', 100, { x: 10, y: 915 });
+        this.player.init({ position: { x: 10, y: 900 } });
     }
 
     private initEnemies() {

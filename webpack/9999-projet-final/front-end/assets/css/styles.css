@@ -11,24 +11,53 @@ body {
   overflow: hidden;
 }
 
-.sliding-background {
-  background: url('../img/background.png') repeat-x;
-  height: 560px;
+.game .sliding-background {
+  background: url('../img/background.jpg') repeat-x;
+  height: 1090px;
   width: 10076px;
   /* animation: slide 60s linear infinite; */
 }
 
-.player {
+.game .player {
   position: absolute;
-  left: 10px;
+  width: 45px;
+  height: 60px;
+  background: url('../img/jedi-animation.png');
+  background-position: 0px -502px;
+  z-index: 1;
+  transform: translateY(-50%) translateX(64px);
+  transition: all 1s linear;
+  pointer-events: none;
 }
 
-.player img {
+.game .player img {
   height: 30%;
   width: 30%;
 }
 
-@keyframes slide{
+.game .walk {
+  animation: run 0.8s steps(4) infinite;
+}
+
+.game .idle {
+  animation: idle 0.8s steps(4) infinite;
+}
+
+.stopped {
+  animation-name: none;
+}
+
+@keyframes run {
+  0%{background-position: -0px -502px;}
+  100%{background-position:-200px -502px;};
+}
+
+@keyframes idle {
+  0%{background-position: -0px -440px;}
+  100%{background-position:-200px -440px;};
+}
+
+@keyframes slide {
   0%{
     transform: translate3d(0, 0, 0);
   }

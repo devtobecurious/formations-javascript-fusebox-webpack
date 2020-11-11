@@ -14,5 +14,11 @@ export class StormTrooper extends Character {
         super(id, prenom, lifePoints, positionInitiale);
         this.arme = arme;
     }
+
+    //#region Properties
+    protected get containerKey(): string {
+        return '.trooper';
+    }
+    //#endregion
 }
 //}
