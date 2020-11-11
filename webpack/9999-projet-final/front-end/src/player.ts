@@ -1,4 +1,4 @@
-import { Character } from './character';
+import { Character, Direction } from './character';
 import { Position } from './position';
 
 //namespace Characters {
@@ -18,14 +18,20 @@ import { Position } from './position';
             document.addEventListener('keydown', (event) => {
                 if (event.key == 'ArrowRight' || event.key == 'ArrowLeft') {
                     this.state = 'walk';
-                    this.container.className = 'player ' + this.state;
+
+                    this.currentDirection = event.key.toLocaleLowerCase().replace('arrow', '') as Direction;
+                    this.defineAnimationWithDirection();
                 }
             });
 
             document.addEventListener('keyup', (event) => {
                 this.state = 'idle';
-                this.container.className = 'player ' + this.state;
+                this.defineAnimationWithDirection();
             });
+        }
+
+        private defineAnimationWithDirection() {
+            this.container.className = `player ${this.state} ${this.currentDirection}`;
         }
         //#endregion
 

@@ -49,7 +49,7 @@ export class Game {
 
     private initPlayer(): void {
         this.player = new Player(1, 'Luke', 100, new Arme());
-        this.player.init({ position: { x: 0, y: 1060 } });
+        this.player.init({ position: { x: 0, y: 1030 } });
     }
 
     private moveEnemies(): void {

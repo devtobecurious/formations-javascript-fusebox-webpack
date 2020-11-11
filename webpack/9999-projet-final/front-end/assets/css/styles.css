@@ -11,13 +11,39 @@ body {
   overflow: hidden;
 }
 
+.game .status-bar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: bisque;
+  border: 5px solid darkgreen;
+}
+
+.game .flex {
+  display: flex;
+}
+
+.game .flex > .col {
+  flex: auto;
+}
+
+.game .status-bar .life {
+  width: 100%;
+}
+
+.game .status-bar .life .px {
+  font-weight: bold;
+}
+
 .game .sliding-background {
   background: url('../img/background.jpg') repeat-x;
   height: 1090px;
   width: 10076px;
 }
 
-.game .rotate {
+.game .player.left {
   transform: rotateY(3.142rad);
 } 
 
@@ -28,7 +54,6 @@ body {
   background: url('../img/jedi-animation.png');
   background-position: 0px -502px;
   z-index: 1;
-  transform: translateY(-50%) translateX(64px);
   pointer-events: none;
 }
 
