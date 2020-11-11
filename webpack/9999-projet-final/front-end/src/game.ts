@@ -3,6 +3,7 @@ import { Scene } from './scene';
 import { Player } from './player';
 import { StormTrooper } from './storm-trooper';
 import { Position } from './position';
+import { StatusBar } from './status-bar';
 
 export type initGame = { nbStormsTroopers: number, frameRate: number };
 
@@ -17,6 +18,8 @@ export class Game {
     private troopers: StormTrooper[] = [];
     private currentScene = new Scene();
     private player: Player;
+    private statusBar = new StatusBar();
+    private id: number = 0;
     //#endregion
 
     //#region Public methods
@@ -29,13 +32,13 @@ export class Game {
     }
 
     start() {
-        setInterval(() => {
+        this.id = setInterval(() => {
             this.executeFrame();
         })
     }
 
     stop() {
-
+        clearInterval(this.id);
     }
     //#endregion
 
