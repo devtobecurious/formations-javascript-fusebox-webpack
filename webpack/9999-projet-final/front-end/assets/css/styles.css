@@ -15,7 +15,6 @@ body {
   background: url('../img/background.jpg') repeat-x;
   height: 1090px;
   width: 10076px;
-  /* animation: slide 60s linear infinite; */
 }
 
 .game .rotate {
