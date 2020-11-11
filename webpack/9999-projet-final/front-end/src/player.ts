@@ -16,8 +16,10 @@ import { Position } from './position';
         //#region Internal methods
         private detectedMoveAnimation() {
             document.addEventListener('keydown', (event) => {
-                this.state = 'walk';
-                this.container.className = 'player ' + this.state;
+                if (event.key == 'ArrowRight' || event.key == 'ArrowLeft') {
+                    this.state = 'walk';
+                    this.container.className = 'player ' + this.state;
+                }
             });
 
             document.addEventListener('keyup', (event) => {
