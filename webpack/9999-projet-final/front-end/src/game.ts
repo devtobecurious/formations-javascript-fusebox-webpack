@@ -28,6 +28,7 @@ export class Game {
         this.nbStormsTroopers = param.nbStormsTroopers;
 
         this.initPlayer();
+        this.initStatusBar();
         this.currentScene.init({ rythm: 10, querySelector: '.sliding-background' });
     }
 
@@ -48,11 +49,20 @@ export class Game {
     private executeFrame(): void {
         this.createRandomEnemy();
         this.moveEnemies();
+        this.updateStatusBar();
     }
 
     private initPlayer(): void {
         this.player = new Player(1, 'Luke', 100, new Arme());
         this.player.init({ position: { x: 0, y: 1030 } });
+    }
+
+    private initStatusBar(): void {
+        this.statusBar.init(this.player);
+    }
+
+    private updateStatusBar() {
+        this.statusBar.update();
     }
 
     private moveEnemies(): void {
