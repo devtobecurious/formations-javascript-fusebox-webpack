@@ -4,7 +4,7 @@ const game = new Game();
 
 game.init({
     frameRate: 100,
-    nbStormsTroopers: 20
+    nbStormsTroopers: 2
 });
 
 game.start();

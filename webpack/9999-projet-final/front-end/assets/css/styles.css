@@ -18,6 +18,10 @@ body {
   /* animation: slide 60s linear infinite; */
 }
 
+.game .rotate {
+  transform: rotateY(3.142rad);
+} 
+
 .game .player {
   position: absolute;
   width: 45px;
@@ -26,8 +30,18 @@ body {
   background-position: 0px -502px;
   z-index: 1;
   transform: translateY(-50%) translateX(64px);
-  transition: all 1s linear;
   pointer-events: none;
+}
+
+.game .trooper {
+  position: absolute;
+  width: 32px;
+  height: 48px;
+  background: url('../img/stormtrooper.png');
+  transform: translateY(0%) translateX(64px);
+  background-position: 0px -48px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .game .player img {
@@ -35,11 +49,15 @@ body {
   width: 30%;
 }
 
-.game .walk {
+.game .player.walk {
   animation: run 0.8s steps(4) infinite;
 }
 
-.game .idle {
+.game .trooper.walk {
+  animation: runtrooper 0.8s steps(4) infinite;
+}
+
+.game .player.idle {
   animation: idle 0.8s steps(4) infinite;
 }
 
@@ -50,6 +68,11 @@ body {
 @keyframes run {
   0%{background-position: -0px -502px;}
   100%{background-position:-200px -502px;};
+}
+
+@keyframes runtrooper {
+  0%{background-position: -0px -48px;}
+  100%{background-position:-132px -48px;};
 }
 
 @keyframes idle {
