@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "fuse-box": "^3.7.1",
-    "terser": "^4.6.6",
+    "terser": "^4.8.1",
     "typescript": "^3.8.3",
     "uglify-js": "^3.8.0"
   }
